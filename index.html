@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<body style="-webkit-user-select: none">
+<table style="margin-left:10%">
+	<tr>
+		<td>
+			<div style="font-size:2em;font-weight:bold">Daniel Cepeda</div>
+			<h2>6.170 Fall 2014 - Game of Life</h2>
+		</td>
+
+		<td style="padding:0px 100px 0px 100px" valign="top">
+			<table>
+				<tr>
+					<div style="font-size:1.25em;font-weight:bold">User Parameters:</div>
+				</tr>
+				<tr>
+					<td>step time (ms):</td>
+					<td><input id = "step_time" value="10" size="4"></td>
+					<td>rows:</td>
+					<td><input id = "rows" value="20" size="4"></td>				
+				</tr>
+				<tr>
+					<td>square side length:</td>
+					<td><input id = "factor" value="20" size="4"></td>
+					<td>columns:</td>
+					<td><input id = "columns" value="50" size="4"></td>				
+				</tr>
+				<tr>
+					<td><button id="update_values_button">Update Values</button></td>
+			</table>
+		</td>
+
+		<td valign="top">
+			<table>
+				<tr>
+					<div style="font-size:1.25em;font-weight:bold">Select Colors!</div>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="blue">Blue</td>
+					<td><input type="checkbox" id="yellow">Yellow</td>
+					<td><input type="checkbox" id="red">Red</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="green">Green</td>
+					<td><input type="checkbox" id="brown">Brown</td>
+					<td><input type="checkbox" id="orange">Orange</td>
+				</tr>
+				<tr>
+					<td><button id="randomize_button">Randomize</button></td>
+					<td><button id="genocide_button">Genocide</button></td>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<div align="center">
+	<canvas id="canvas"></canvas><br>
+	<button id="play_toggle_button">Play</button>
+	<button id = "step_button">Step</button><br>
+	<button id="log_button">Log Preset Data to Console</button><br>
+	<p id="message"></p>
+	<div style="font-size:1.25em;font-weight:bold">Load Presets:</div>
+	<select id="selection"></select>
+	<button id="load_button">Load Preset Data</button>
+</div>
+
+<div style="margin-left:2%">
+	<div style="font-size:2em;font-weight:bold;font-style:italic">The Rules:</div>
+	Any live cell with fewer than two live neighbours of its own species dies, as if caused by under-population.<br>
+	Any live cell with two or three live neighbours of its own species lives on to the next generation.<br>
+	However, any live cell with more than three live neighbours of any species dies, as if by overcrowding.<br>
+	Any dead cell with exactly three live neighbours of one species becomes a live cell, as if by reproduction.<br>
+	However, if a dead cell has exactly three live neighbors of 2 different species, the cell stays dead, as if by inability to decide which species to become.
+</div>
+
+</body>
+<script src="presets.js"></script>
+<script src="https://code.jquery.com/qunit/qunit-1.15.0.js"></script>
+<script src="game_of_life.js"></script>
+</html>
